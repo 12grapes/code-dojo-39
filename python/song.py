@@ -40,3 +40,7 @@ There was an old lady who swallowed a horse...
 ...She's dead, of course!"""
 
 print(song)
+
+def make_song():
+    return song
+
