@@ -44,3 +44,5 @@ print(song)
 def make_song():
     return song
 
+def animal_song(animal):
+    return song.replace("fly", animal)
