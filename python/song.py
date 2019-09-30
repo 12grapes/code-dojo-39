@@ -46,3 +46,6 @@ def make_song():
 
 def animal_song(animal):
     return song.replace("fly", animal)
+
+def new_song(in_song, old_animal, new_animal):
+    return in_song.replace(old_animal, new_animal)
