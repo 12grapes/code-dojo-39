@@ -39,13 +39,7 @@ I don't know why she swallowed a fly - perhaps she'll die!
 There was an old lady who swallowed a horse...
 ...She's dead, of course!"""
 
-print(song)
-
-def make_song():
+def make_song(first_animal, second_animal):
+    song.replace("fly", first_animal)
+    song.replace("spider", second_animal)
     return song
-
-def animal_song(animal):
-    return song.replace("fly", animal)
-
-def new_song(in_song, old_animal, new_animal):
-    return in_song.replace(old_animal, new_animal)

@@ -1,140 +1,25 @@
-import song
+from song import make_song, song
 import pytest
 
 class Test:
-    def test_make_song(self):
-        assert song.make_song() == song.song 
 
-    def test_unicorn(self):
-        assert song.animal_song('unicorn') == unicorn_song
+    list_of_animals = [
+        ("unicorn", "spider"),
+        ("rabbit", "spider"),
+        ("rabbit", "jackalope"),
+    ]
 
-    def test_rabbit(self):
-        assert song.animal_song('rabbit') == rabbit_song
+    @pytest.mark.parametrize("animals", list_of_animals)
+    def test_make_song(self, animals):
+        # Arrange
+        (first_animal, second_animal) = animals
+        expected_song = song
+        expected_song.replace("fly", first_animal)
+        expected_song.replace("spider", second_animal)
 
-    def test_jack(self):
-        assert song.new_song(song.animal_song('rabbit'), 'spider', 'jackalope')
-
-
-unicorn_song = """There was an old lady who swallowed a unicorn.
-I don't know why she swallowed a unicorn - perhaps she'll die!
-
-There was an old lady who swallowed a spider;
-That wriggled and wiggled and tickled inside her.
-She swallowed the spider to catch the unicorn;
-I don't know why she swallowed a unicorn - perhaps she'll die!
-
-There was an old lady who swallowed a bird;
-How absurd to swallow a bird.
-She swallowed the bird to catch the spider,
-She swallowed the spider to catch the unicorn;
-I don't know why she swallowed a unicorn - perhaps she'll die!
-
-There was an old lady who swallowed a cat;
-Fancy that to swallow a cat!
-She swallowed the cat to catch the bird,
-She swallowed the bird to catch the spider,
-She swallowed the spider to catch the unicorn;
-I don't know why she swallowed a unicorn - perhaps she'll die!
-
-There was an old lady who swallowed a dog;
-What a hog, to swallow a dog!
-She swallowed the dog to catch the cat,
-She swallowed the cat to catch the bird,
-She swallowed the bird to catch the spider,
-She swallowed the spider to catch the unicorn;
-I don't know why she swallowed a unicorn - perhaps she'll die!
-
-There was an old lady who swallowed a cow;
-I don't know how she swallowed a cow!
-She swallowed the cow to catch the dog,
-She swallowed the dog to catch the cat,
-She swallowed the cat to catch the bird,
-She swallowed the bird to catch the spider,
-She swallowed the spider to catch the unicorn;
-I don't know why she swallowed a unicorn - perhaps she'll die!
-
-There was an old lady who swallowed a horse...
-...She's dead, of course!"""
-
-rabbit_song = """There was an old lady who swallowed a rabbit.
-I don't know why she swallowed a rabbit - perhaps she'll die!
-
-There was an old lady who swallowed a spider;
-That wriggled and wiggled and tickled inside her.
-She swallowed the spider to catch the rabbit;
-I don't know why she swallowed a rabbit - perhaps she'll die!
-
-There was an old lady who swallowed a bird;
-How absurd to swallow a bird.
-She swallowed the bird to catch the spider,
-She swallowed the spider to catch the rabbit;
-I don't know why she swallowed a rabbit - perhaps she'll die!
-
-There was an old lady who swallowed a cat;
-Fancy that to swallow a cat!
-She swallowed the cat to catch the bird,
-She swallowed the bird to catch the spider,
-She swallowed the spider to catch the rabbit;
-I don't know why she swallowed a rabbit - perhaps she'll die!
-
-There was an old lady who swallowed a dog;
-What a hog, to swallow a dog!
-She swallowed the dog to catch the cat,
-She swallowed the cat to catch the bird,
-She swallowed the bird to catch the spider,
-She swallowed the spider to catch the rabbit;
-I don't know why she swallowed a rabbit - perhaps she'll die!
-
-There was an old lady who swallowed a cow;
-I don't know how she swallowed a cow!
-She swallowed the cow to catch the dog,
-She swallowed the dog to catch the cat,
-She swallowed the cat to catch the bird,
-She swallowed the bird to catch the spider,
-She swallowed the spider to catch the rabbit;
-I don't know why she swallowed a rabbit - perhaps she'll die!
-
-There was an old lady who swallowed a horse...
-...She's dead, of course!"""
-
-jackalope_song = """There was an old lady who swallowed a rabbit.
-I don't know why she swallowed a rabbit - perhaps she'll die!
-
-There was an old lady who swallowed a jackalope;
-That wriggled and wiggled and tickled inside her.
-She swallowed the jackalope to catch the rabbit;
-I don't know why she swallowed a rabbit - perhaps she'll die!
-
-There was an old lady who swallowed a bird;
-How absurd to swallow a bird.
-She swallowed the bird to catch the jackalope,
-She swallowed the jackalope to catch the rabbit;
-I don't know why she swallowed a rabbit - perhaps she'll die!
-
-There was an old lady who swallowed a cat;
-Fancy that to swallow a cat!
-She swallowed the cat to catch the bird,
-She swallowed the bird to catch the jackalope,
-She swallowed the jackalope to catch the rabbit;
-I don't know why she swallowed a rabbit - perhaps she'll die!
-
-There was an old lady who swallowed a dog;
-What a hog, to swallow a dog!
-She swallowed the dog to catch the cat,
-She swallowed the cat to catch the bird,
-She swallowed the bird to catch the jackalope,
-She swallowed the jackalope to catch the rabbit;
-I don't know why she swallowed a rabbit - perhaps she'll die!
-
-There was an old lady who swallowed a cow;
-I don't know how she swallowed a cow!
-She swallowed the cow to catch the dog,
-She swallowed the dog to catch the cat,
-She swallowed the cat to catch the bird,
-She swallowed the bird to catch the jackalope,
-She swallowed the jackalope to catch the rabbit;
-I don't know why she swallowed a rabbit - perhaps she'll die!
-
-There was an old lady who swallowed a horse...
-...She's dead, of course!"""
-
+        # Act
+        actual_song = make_song(first_animal, second_animal)
+        
+        # Assert
+        assert actual_song == expected_song
+        
