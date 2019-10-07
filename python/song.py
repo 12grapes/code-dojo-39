@@ -1,3 +1,5 @@
+from typing import Dict
+
 song = """There was an old lady who swallowed a fly.
 I don't know why she swallowed a fly - perhaps she'll die!
 
@@ -39,7 +41,11 @@ I don't know why she swallowed a fly - perhaps she'll die!
 There was an old lady who swallowed a horse...
 ...She's dead, of course!"""
 
-def make_song(first_animal, second_animal):
-    song.replace("fly", first_animal)
-    song.replace("spider", second_animal)
-    return song
+
+def make_song(first_animal: Dict, second_animal: Dict):
+    updated_song = song.replace("fly", first_animal.get("name"))
+    updated_song = updated_song.replace("spider", second_animal.get("name"))
+    updated_song = updated_song.replace(
+        "That wriggled and wiggled and tickled inside her.", second_animal.get("rhyme")
+    )
+    return updated_song
