@@ -1,12 +1,18 @@
 from song import make_song, song
 import pytest
 
+# Fixtures
+unicorn = {"name": "unicorn", "rhyme": "They love acorn!"}
+spider = {"name": "spider", "rhyme": "she wiggled and wiggled inside her!"}
+rabbit = {"name": "rabbit", "rhyme": "that's a funny habit!"}
+jackalope = {"name": "jackalope", "rhyme": "there is no hope..."}
+
 class Test:
 
     list_of_animals = [
-        ("unicorn", "spider"),
-        ("rabbit", "spider"),
-        ("rabbit", "jackalope"),
+        (unicorn, spider),
+        (rabbit, spider),
+        (rabbit, jackalope),
     ]
 
     @pytest.mark.parametrize("animals", list_of_animals)
