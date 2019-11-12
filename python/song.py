@@ -48,4 +48,8 @@ def make_song(first_animal: Dict, second_animal: Dict):
     updated_song = updated_song.replace(
         "That wriggled and wiggled and tickled inside her.", second_animal.get("rhyme")
     )
+    updated_song = updated_song.replace(
+        "perhaps she'll die!", first_animal.get("rhyme")
+    )
     return updated_song
+

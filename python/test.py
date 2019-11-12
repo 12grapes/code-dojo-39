@@ -23,6 +23,9 @@ class Test:
             "That wriggled and wiggled and tickled inside her.",
             second_animal.get("rhyme"),
         )
+        expected_song = expected_song.replace(
+            "perhaps she'll die!", first_animal.get("rhyme")
+        )
 
         # Act
         actual_song = make_song(first_animal, second_animal)
