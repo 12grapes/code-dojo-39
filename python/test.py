@@ -1,4 +1,4 @@
-from song import make_song, song
+from song import make_song
 import pytest
 
 # Fixtures
@@ -16,16 +16,25 @@ class Test:
     ]
 
     @pytest.mark.parametrize("animals", list_of_animals)
-    def test_make_song(self, animals):
+    def test_make_song_replaces_animals_names(self, animals):
         # Arrange
         (first_animal, second_animal) = animals
-        expected_song = song
-        expected_song.replace("fly", first_animal)
-        expected_song.replace("spider", second_animal)
 
         # Act
         actual_song = make_song(first_animal, second_animal)
-        
+
         # Assert
-        assert actual_song == expected_song
-        
+        assert first_animal.get("name") in actual_song
+        assert second_animal.get("name") in actual_song
+
+    @pytest.mark.parametrize("animals", list_of_animals)
+    def test_make_song_replaces_rhyme(self, animals):
+        # Arrange
+        (first_animal, second_animal) = animals
+
+        # Act
+        actual_song = make_song(first_animal, second_animal)
+
+        # Assert
+        assert not first_animal.get("rhyme") in actual_song
+        assert second_animal.get("rhyme") in actual_song
